@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href = "chatbot.css" type ="text/css">
+    </head>
+    <body>
+        <div id = "chatBG" >
+          <div id = "more" onclick ="user.addWords()" > + <br> 
+            <div id = "moreDisplay" hidden> 
+            <input id = "Input" type ="text" placeholder ="Type your input message here"> <button id = "addInput" onclick= "addInput()">Add</button><br>
+            <input id = "reply" type ="text" placeholder="Type your response here"><button id ="addReply" onclick ="addReply()">Add</button>
+            <button id= "close" onclick= "user.close()"> Close</button>
+            </div>
+          </div>
+            <div id= "chatArea"></div>
+            <input type="text" id = "inputBox" placeholder = "Type your message here">
+            <button id = 'send' onclick="execute()"> Send</button>
+        </div>
+    </body>
+    <script src ="chatbot.js"></script>
+</html>
