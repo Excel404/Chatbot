@@ -44,7 +44,7 @@ function MessageBox(){
         
         for (var i = 0; i< myInput.length ;i++){
             if(inputMessage.value != ""){
-                if (myInput[i].includes(inputMessage.value.toLowerCase())){
+                if inputMessage.value.toLowerCase().includes(myInput[i])){
                     this.createMessage(replies[i],'white', 'left');
                 }
              
