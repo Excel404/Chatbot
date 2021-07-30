@@ -17,7 +17,7 @@ function MessageBox(){
             space.innerHTML = "<br>"
             chatArea.appendChild(Box);
             chatArea.appendChild(space);
-            chatArea.appendChild(space);
+            
         }
         
 
