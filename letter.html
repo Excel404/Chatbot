@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      #addressBox{
+        height: 30px;
+        overflow:scroll;
+        width:200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Welcome</h2>
+    <div>
+    <span>Name:</span><input type = "text" placeholder= "Please type your name here" id = "nameBox">
+    <span>Address:</span><textarea type = "text" placeholder= "Please type your address here" id = "addressBox"></textarea>
+    <span>Dest.Address:</span><textarea type = "text" placeholder= "Please type your destination address here" id = "destAddressBox"></textarea>
+    <span>Content(Body):</span><textarea type = "text" placeholder= "Please type your message body here" id = "messageBox"></textarea>
+    <button id = "seeResult" onclick = "execute()">Result</button>
+    </div>
+    <div id = "result"></div>
+  </body>
+  <script>
+   /*let firstName = ["Excel", "Favour", "Prosper", "Victor"];
+   let middleName = ["Chimdindu","Odiwommma","Chidera","Chimaobi"];
+   let surname = ["Okeke", "Okafor","Okorie","Okonkwo"];
+   let fullName = [...firstName, ...middleName, ...surname];
+   console.log(fullName);*/
+    let nameBox = document.getElementById("nameBox");
+    let addressBox = document.getElementById("addressBox");
+    let destAddressBox = document.getElementById("destAddressBox");
+    let messageBox = document.getElementById("messageBox");
+    
+    function seeResult(Name, Address, destAddress, Message){
+     this.name = Name;
+     this.Address = Address;
+     this.destAddress = destAddress;
+     this.Message = Message;
+     let result = `<pre><p style = "text-align:right">${Address}</p></pre>
+     <pre>${destAddress}</pre> <br>
+     Dear Sir/ Ma,<br>
+     <p style ="text-align:center"> LETTER OF REQUEST</p><br>
+     <span> My name is ${Name}. ${Message}</span>
+     <br>
+     <p style = "text-align: right">Yours faithfully,<br>
+     ${Name} </p>`;
+     let resultDiv = document.getElementById("result");
+     this.display = ()=>{
+       resultDiv.innerHTML = result;
+      }
+    }
+    function execute(){
+      let name = nameBox.value;
+      let address = addressBox.value;
+      let destAddress = destAddressBox.value;
+      let message = messageBox.value;
+      let user1 = new seeResult(name, address, destAddress, message);
+      user1.display();
+    }
+
+   
+   
+  </script>
+  </html>
