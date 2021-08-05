@@ -50,7 +50,7 @@ function MessageBox(){
                   this.createMessage('Yes Boss, please wait...','white','left');
                   
                   setTimeout(function() {
-                    window.open(`${url[url.length-1]}`, "_blank");
+                    window.open(`https://${url[url.length-1]}`, "_blank");
                   }, 5000);
                 }
             }
