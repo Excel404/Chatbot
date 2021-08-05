@@ -22,8 +22,8 @@ function MessageBox(){
         
 
     }
-    let myInput = ["hello", "how are you doing", "who created you?", "ok, that's good"];
-    let replies = ["Hi, I'm Jarvis", "I'm fine", "Excel","Goodbye"];
+    let myInput = ["hello", "how are you doing", "who created you?", "ok, that's good","Jarvis open"];
+    let replies = ["Hi, I'm Jarvis", "I'm fine", "Excel","Goodbye","Yes boss"];
     let hiddenDiv = document.getElementById("moreDisplay");
     this.addWords = ()=>{
       hiddenDiv.classList.toggle("show");
@@ -32,26 +32,28 @@ function MessageBox(){
       
       this.addInput = ()=>{
         myInput.push(Input.value);
-        console.log(myInput)
       }
       this.addReply = () =>{
         replies.push(Reply.value);
-        console.log(replies)
       }
       
     }
     this.checker = ()=>{
-        
+      if(inputMessage.value != ""){
         for (var i = 0; i< myInput.length ;i++){
-            if(inputMessage.value != ""){
-                if (inputMessage.value.toLowerCase().includes(myInput[i])){
-                    this.createMessage(replies[i],'white', 'left');
-                }
-             
-            }
-            
-
+          if (inputMessage.value.toLowerCase().includes(myInput[i])){
+             this.createMessage(replies[i],'white', 'left');
+           }
         }
+        let url = inputMessage.value.toLowerCase().split(" ");
+        if(inputMessage.value.toLowerCase().includes(`jarvis open`)){
+                  this.createMessage('Yes Boss, please wait...','white','left');
+                  
+                  setTimeout(function() {
+                    window.open(`${url[url.length-1]}`, "_blank");
+                  }, 5000);
+                }
+            }
        inputMessage.value = "";
     }
 }
