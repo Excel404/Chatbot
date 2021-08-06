@@ -22,8 +22,8 @@ function MessageBox(){
         
 
     }
-    let myInput = ["hello", "how are you doing", "who created you?", "ok, that's good","Jarvis open"];
-    let replies = ["Hi, I'm Jarvis", "I'm fine", "Excel","Goodbye","Yes boss"];
+    let myInput = ["hello", "how are you doing", "who created you?", "ok, that's good"];
+    let replies = ["Hi, I'm Jarvis", "I'm fine", "Excel","Goodbye"];
     let hiddenDiv = document.getElementById("moreDisplay");
     this.addWords = ()=>{
       hiddenDiv.classList.toggle("show");
@@ -53,7 +53,21 @@ function MessageBox(){
                     window.open(`https://${url[url.length-1]}`, "_blank");
                   }, 5000);
                 }
+        if(inputMessage.value.toLowerCase().includes('jarvis call')){
+              this.createMessage('Yes Boss, please wait...','white','left');
+                  
+                  setTimeout(function() {
+                    window.open(`callto:${url[url.length-1]}`, "_blank");
+                  }, 5000);
             }
+        if(inputMessage.value.toLowerCase().includes('jarvis mail')){
+              this.createMessage('Yes Boss, please wait...','white','left');
+                  
+                  setTimeout(function() {
+                    window.open(`mailto:${url[url.length-1]}`, "_blank");
+                  }, 5000);
+          }
+      }
        inputMessage.value = "";
     }
 }
