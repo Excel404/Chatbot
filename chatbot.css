@@ -22,12 +22,14 @@
   width: fit-content;
   overflow:scroll;
 }
+.show{
+  display:block;
+}
 #close{
   font-size: 20px;
 }
 #more{
   width:fit-content;
-  
   color: white;
   font-size: 30px;
   float: top;
