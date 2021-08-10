@@ -3,7 +3,7 @@ let inputMessage = document.getElementById('inputBox');
 function MessageBox(){
     let chatArea = document.getElementById('chatArea');
     
-    this.createMessage = (message, bgcolor,position)=>{
+    this.createMessage = (message, bgcolor,position, alt)=>{
         this.message = message;
         this.bgcolor = bgcolor;
         
@@ -13,7 +13,9 @@ function MessageBox(){
             Box.innerHTML = message;
             Box.style.backgroundColor = bgcolor;
             Box.style.float = position;
-            let space = document.createElement('span')
+            Box.style.clear = alt;
+            
+            let space = document.createElement('p')
             space.innerHTML = "<br>"
             chatArea.appendChild(Box);
             chatArea.appendChild(space);
@@ -42,39 +44,39 @@ function MessageBox(){
       if(inputMessage.value != ""){
         for (var i = 0; i< myInput.length ;i++){
           if (inputMessage.value.toLowerCase().includes(myInput[i])){
-             this.createMessage(replies[i],'white', 'left');
+             this.createMessage(replies[i],'white', 'left', 'right');
            }
         }
         let url = inputMessage.value.toLowerCase().split(" ");
         if(inputMessage.value.toLowerCase().includes(`jarvis open`)){
-                  this.createMessage('Yes Boss, please wait...','white','left');
+                  this.createMessage('Yes Boss, please wait...','white','left','right');
                   
                   setTimeout(function() {
                     window.open(`https://${url[url.length-1]}`, "_blank");
                   }, 5000);
                 }
-        if(inputMessage.value.toLowerCase().includes('jarvis call')){
-              this.createMessage('Yes Boss, please wait...','white','left');
+        if(inputMessage.value.toLowerCase().includes(`jarvis call`)){
+              this.createMessage('Yes Boss, please wait...','white','left', 'right');
                   
                   setTimeout(function() {
-                    window.open(`callto:${url[url.length-1]}`, "_blank");
+                    window.open(`javascript: open('tel:${url[url.length-1]}', '_blank');void(0);`);
                   }, 5000);
             }
         if(inputMessage.value.toLowerCase().includes('jarvis mail')){
-              this.createMessage('Yes Boss, please wait...','white','left');
+              this.createMessage('Yes Boss, please wait...','white','left','right');
                   
                   setTimeout(function() {
-                    window.open(`mailto:${url[url.length-1]}`, "_blank");
+                    window.open(`javascript: open('mailto:${url[url.length-1]}', '_blank');void(0);`);
                   }, 5000);
           }
       }
        inputMessage.value = "";
     }
 }
-
+let user = new MessageBox();
+let Jarvis = new MessageBox();
 function execute(){
-  let user = new MessageBox();
-  let Jarvis = new MessageBox();
-  user.createMessage(inputMessage.value,"lightgreen","right");
+  
+  user.createMessage(inputMessage.value,"lightgreen",'right', 'left');
   Jarvis.checker()
 }
